@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Add from "../img/addAvatar.png";
+import Add from "../assets/img/addAvatar.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db, storage } from "../firebase";
+import { auth, db, storage } from "../connections/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
@@ -20,22 +20,22 @@ const Register = () => {
     const file = e.target[3].files[0];
 
     try {
-      //Create user
+      //Crear usuario
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
-      //Create a unique image name
+      //Crea un nombre de imagen único
       const date = new Date().getTime();
       const storageRef = ref(storage, `${displayName + date}`);
 
       await uploadBytesResumable(storageRef, file).then(() => {
         getDownloadURL(storageRef).then(async (downloadURL) => {
           try {
-            //Update profile
+            //Actualización del perfil
             await updateProfile(res.user, {
               displayName,
               photoURL: downloadURL,
             });
-            //create user on firestore
+            //crear usuario firestore
             await setDoc(doc(db, "users", res.user.uid), {
               uid: res.user.uid,
               displayName,
@@ -62,8 +62,8 @@ const Register = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Lama Chat</span>
-        <span className="title">Register</span>
+        <span className="logo">Support Stage</span>
+        <span className="title">Registro</span>
         <form onSubmit={handleSubmit}>
           <input required type="text" placeholder="display name" />
           <input required type="email" placeholder="email" />
@@ -71,14 +71,14 @@ const Register = () => {
           <input required style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
             <img src={Add} alt="" />
-            <span>Add an avatar</span>
+            <span>Agregar imagen de perfil</span>
           </label>
-          <button disabled={loading}>Sign up</button>
-          {loading && "Uploading and compressing the image please wait..."}
-          {err && <span>Something went wrong</span>}
+          <button disabled={loading}>Iniciar sesion</button>
+          {loading && "Subiendo y comprimiendo la imagen por favor espera..."}
+          {err && <span>Algo salió mal</span>}
         </form>
         <p>
-          You do have an account? <Link to="/register">Login</Link>
+        ¿Tienes una cuenta? <Link to="/register">Iniciar sesion</Link>
         </p>
       </div>
     </div>

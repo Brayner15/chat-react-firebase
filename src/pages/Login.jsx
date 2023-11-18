@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../connections/firebase";
 
 const Login = () => {
   const [err, setErr] = useState(false);
@@ -22,15 +22,15 @@ const Login = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Lama Chat</span>
-        <span className="title">Login</span>
+        <span className="logo">Support Stage</span>
+        <span className="title">Inicio de sesion</span>
         <form onSubmit={handleSubmit}>
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />
           <button>Sign in</button>
           {err && <span>Something went wrong</span>}
         </form>
-        <p>You don't have an account? <Link to="/register">Register</Link></p>
+        <p>Seguro que tienes una cuenta? <Link to="/register">Registro</Link></p>
       </div>
     </div>
   );

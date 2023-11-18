@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 
-// Import the functions you need from the SDKs you need
+// Importe las funciones que necesita desde los SDK que necesita
 
-// TODO: Add SDKs for Firebase products that you want to use
+// agregue SDK para los productos de Firebase que desee usar
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// La configuración de Firebase de tu aplicación web
 const firebaseConfig = {
   apiKey: "AIzaSyCYFoXGMUYe_aUJr6oP-6FfWvWNLPzASXg",
   authDomain: "chat-5d6e2.firebaseapp.com",
@@ -18,7 +18,7 @@ const firebaseConfig = {
   appId: "1:528762678617:web:58c208abb43d433feb3048"
 };
 
-// Initialize Firebase
+// Inicializar Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const storage = getStorage();
