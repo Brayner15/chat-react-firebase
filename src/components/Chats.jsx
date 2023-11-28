@@ -12,6 +12,7 @@ const Chats = () => {
 
   useEffect(() => {
     const getChats = () => {
+      // Escuchando cambios en una colección
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
         setChats(doc.data());
       });

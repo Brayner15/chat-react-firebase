@@ -47,7 +47,7 @@ const Register = () => {
             await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/");
           } catch (err) {
-            console.log(err);
+            // console.log(err);
             setErr(true);
             setLoading(false);
           }
@@ -65,9 +65,9 @@ const Register = () => {
         <span className="logo">Support Stage</span>
         <span className="title">Registro</span>
         <form onSubmit={handleSubmit}>
-          <input required type="text" placeholder="display name" />
-          <input required type="email" placeholder="email" />
-          <input required type="password" placeholder="password" />
+          <input required type="text" placeholder="Nombre de usuario" />
+          <input required type="email" placeholder="Correo" />
+          <input required type="password" placeholder="Contraseña" />
           <input required style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
             <img src={Add} alt="" />
@@ -78,7 +78,7 @@ const Register = () => {
           {err && <span>Algo salió mal</span>}
         </form>
         <p>
-        ¿Tienes una cuenta? <Link to="/register">Iniciar sesion</Link>
+        ¿Tienes una cuenta? <Link to="/login">Iniciar sesion</Link>
         </p>
       </div>
     </div>
