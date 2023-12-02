@@ -73,7 +73,7 @@ const Register = () => {
             <img src={Add} alt="" />
             <span>Agregar imagen de perfil</span>
           </label>
-          <button disabled={loading}>Iniciar sesion</button>
+          <button disabled={loading}>Registrar</button>
           {loading && "Subiendo y comprimiendo la imagen por favor espera..."}
           {err && <span>Algo salió mal</span>}
         </form>

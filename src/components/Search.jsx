@@ -49,7 +49,7 @@ const Search = () => {
       const res = await getDoc(doc(db, "chats", combinedId));
 
       if (!res.exists()) {
-        //crear un chat en la colección de chats
+        //crear un chat en la colección  chats
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
         //crear chats de usuario

@@ -27,8 +27,8 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <input type="email" placeholder="Correo" />
           <input type="password" placeholder="Contraseña" />
-          <button>Sign in</button>
-          {err && <span>Something went wrong</span>}
+          <button>Iniciar sesion</button>
+          {err && <span>Algo salió mal</span>}
         </form>
         <p>Seguro que tienes una cuenta? <Link to="/register">Registro</Link></p>
       </div>
